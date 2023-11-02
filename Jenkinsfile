@@ -28,7 +28,7 @@ pipeline {
 stage ('push docker image to docker hub') {
        steps {
         withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'dockerHubUserPasswd', usernameVariable: 'dockerHubUser')]) {
-    sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubUserPasswd}"
+    sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubUserPasswd} docker.io" 
     sh "docker push mamathasama/javawebapp:latest" 
 } 
 }
