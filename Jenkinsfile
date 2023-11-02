@@ -4,7 +4,7 @@ pipeline {
     {
       maven "mymaven"
      }
- 
+ stages { 
  stage('Build') {
             steps {
                 // Get some code from a GitHub repository
@@ -34,6 +34,6 @@ stage ('push docker image to docker hub') {
 
         
               }
-
+}
 }
 
