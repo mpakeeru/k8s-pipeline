@@ -36,7 +36,7 @@ pipeline {
         stage ('Deploy to k8s') {
 
       		steps {
-		  sh "kubectl apply -f javawebapp-deployment.yml javawebapp-service.yml"		
+		  sh "kubectl apply -f javawebapp-deployment.yml,javawebapp-service.yml"		
 
 		}
 		}		
