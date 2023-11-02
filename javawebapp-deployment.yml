@@ -21,4 +21,4 @@ spec:
       - name : javawebapp-container
         image : mamathasama/javawebapp:latest
         ports :
-        - container port : 8080
+        - containerPort : 8080
