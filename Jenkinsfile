@@ -20,6 +20,7 @@ pipeline {
 
   stage ('Build a Docker Image') {
            steps {
+            git 'https://github.com/mpakeeru/k8s-pipeline.git'
                sh "docker build -t javawebapp ."
                 sh  "docker tag javawebapp:latest mamathasama/javawebapp:latest"
                   }
