@@ -32,6 +32,7 @@ pipeline {
     		sh "docker push mamathasama/javawebapp:latest" 
 		}		 
 		}
+         }
         stage ('Deploy to k8s') {
 
       		steps {
@@ -41,7 +42,6 @@ pipeline {
 		}		
 
         
-              }
 }
 }
 
