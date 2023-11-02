@@ -17,4 +17,21 @@ pipeline {
                 // bat "mvn -Dmaven.test.failure.ignore=true clean package"
             }        
             }  
+
+  stage ('Build a Docker Image') {
+           steps {
+               sh "docker build -t javawebapp ."
+                sh  "docker tag javawebapp:latest mamathasama/javawebapp:latest"
+                  }
+                 }
+stage ('push docker image to docker hub') {
+        withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'dockerHubUserPasswd', usernameVariable: 'dockerHubUser')]) {
+    sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubUserPasswd}"
+    sh "docker push mamathasama/javawebapp:latest" 
+} 
+
+        
+              }
+
 }
+
